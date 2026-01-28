@@ -1,19 +1,22 @@
 {
-	"name": "typescript-template",
+	"name": "loggingsucks",
 	"version": "0.0.0",
-	"description": "remember to update urls in this file",
+	"description": "Inspired by https://loggingsucks.com/",
 	"keywords": [],
-	"homepage": "https://github.com/samualtnorman/typescript-template#readme",
+	"homepage": "https://github.com/samualtnorman/loggingsucks#readme",
 	"bugs": {
-		"url": "https://github.com/samualtnorman/typescript-template/issues",
+		"url": "https://github.com/samualtnorman/loggingsucks/issues",
 		"email": "me@samual.uk"
 	},
 	"license": "MIT",
 	"author": "Samual Norman <me@samual.uk> (https://samual.uk/)",
-	"repository": "github:samualtnorman/typescript-template",
+	"repository": "github:samualtnorman/loggingsucks",
 	"type": "module",
 	"dependencies": {
-		"@samual/types": "^0.0.1"
+		"@b9g/async-context": "^0.1.4",
+		"@samual/types": "^0.0.1",
+		"tiny-ulid": "0.1.2-595d07a",
+		"jsodd": "0.0.1-c56db82"
 	},
 	"devDependencies": {
 		"@babel/plugin-syntax-typescript": "^7.27.1",

@@ -4,13 +4,25 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  jsodd: link:../../../.local/share/pnpm/global/5/node_modules/jsodd
+
 importers:
 
   .:
     dependencies:
+      '@b9g/async-context':
+        specifier: ^0.1.4
+        version: 0.1.4
       '@samual/types':
         specifier: ^0.0.1
         version: 0.0.1
+      jsodd:
+        specifier: link:../../../.local/share/pnpm/global/5/node_modules/jsodd
+        version: link:../../../.local/share/pnpm/global/5/node_modules/jsodd
+      tiny-ulid:
+        specifier: 0.1.2-595d07a
+        version: 0.1.2-595d07a
     devDependencies:
       '@babel/plugin-syntax-typescript':
         specifier: ^7.27.1
@@ -53,6 +65,9 @@ importers:
         version: 4.0.16(@types/node@20.10.8)(jiti@2.6.1)(terser@5.44.1)
 
 packages:
+
+  '@b9g/async-context@0.1.4':
+    resolution: {integrity: sha512-zl2bwMCS1HZEPhwzqQ8fZbxE5OFvuhHsrPEwDKZN9MTERE2UnmmBtoeeM3/29HOTnXV1+ROSHRc0YD3qIbM60Q==}
 
   '@babel/code-frame@7.27.1':
     resolution: {integrity: sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg==}
@@ -1256,6 +1271,10 @@ packages:
   commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
 
+  consola@3.4.2:
+    resolution: {integrity: sha512-5IKcdX0nnYavi6G7TtOhwkYzyjfJlatbjMjuLSfE2kYT5pMDOilZ4OvMhi637CcDICTmz3wARPoyhqyX1Y+XvA==}
+    engines: {node: ^14.18.0 || >=16.10.0}
+
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
@@ -1590,6 +1609,11 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  tiny-ulid@0.1.2-595d07a:
+    resolution: {integrity: sha512-/PpXVIbj1xj2czdOq4W01IAVd256TxoOA3pf48n2DFCzePWICqIUHGm/+QBycn3CJ9NaSgP3SEhkB5Lkq8Kusw==}
+    engines: {node: ^20.10 || ^22 || >=24}
+    hasBin: true
+
   tinybench@2.9.0:
     resolution: {integrity: sha512-0+DUvqWMValLmha6lr4kD8iAMK1HzV0/aKnCtWb9v9641TnP/MFb7Pc2bxoxQjTXAErryXVgUOfv2YqNllqGeg==}
 
@@ -1732,6 +1756,8 @@ packages:
     resolution: {integrity: sha512-k7Nwx6vuWx1IJ9Bjuf4Zt1PEllcwe7cls3VNzm4CQ1/hgtFUK2bRNG3rvnpPUhFjmqJKAKtjV576KnUkHocg/g==}
 
 snapshots:
+
+  '@b9g/async-context@0.1.4': {}
 
   '@babel/code-frame@7.27.1':
     dependencies:
@@ -2949,6 +2975,8 @@ snapshots:
 
   commander@2.20.3: {}
 
+  consola@3.4.2: {}
+
   convert-source-map@2.0.0: {}
 
   core-js-compat@3.47.0:
@@ -3314,6 +3342,11 @@ snapshots:
       acorn: 8.15.0
       commander: 2.20.3
       source-map-support: 0.5.21
+
+  tiny-ulid@0.1.2-595d07a:
+    dependencies:
+      '@samual/types': 0.0.1
+      consola: 3.4.2
 
   tinybench@2.9.0: {}
 
