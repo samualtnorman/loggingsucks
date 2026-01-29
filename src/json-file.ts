@@ -42,11 +42,9 @@ const loggingSucksObject = loggingSucks<LogItem>({
 		if (context.parent) {
 			if (context.parent.custom!.logs)
 				context.parent.custom!.logs.push(context.custom)
-
 			else
 				context.parent.custom!.logs = [ context.custom ]
-		}
-		else
+		} else
 			logItems.push(context.custom)
 	},
 	onFields(context, fields) {
