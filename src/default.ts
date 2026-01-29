@@ -7,6 +7,7 @@ export type LogContext<TCustom> = { name: string, parent: LogContext<TCustom> | 
 export type MakeLoggerOptions<TCustom> = {
 	onContext: (context: LogContext<TCustom>) => void
 	onFields: (context: LogContext<TCustom>, fields: LogFields) => void
+	onReturn: (context: LogContext<TCustom>, value: unknown) => void
 	onThrow: (context: LogContext<TCustom>, error: unknown) => void
 }
 
@@ -22,7 +23,7 @@ export type CaptureLogsFn<TCustom> = <TReturn>(
 export type LoggingSucks<TCustom> = { captureLogs: CaptureLogsFn<TCustom>, log: ContextlessLogFn }
 
 export const loggingSucks = <TCustom = undefined>(
-	{ onContext, onFields, onThrow }: MakeLoggerOptions<TCustom>
+	{ onContext, onFields, onReturn, onThrow }: MakeLoggerOptions<TCustom>
 ): LoggingSucks<TCustom> => {
 	const log: ContextlessLogFn = (name, fields) => {
 		const context: LogContext<TCustom> = { name, parent: undefined, custom: undefined }
@@ -41,12 +42,18 @@ export const loggingSucks = <TCustom = undefined>(
 				onFields(context, fields)
 			}
 
+			let value
+
 			try {
-				return callback({ log, logContext: context, captureLogs: makeCaptureLogs(context) })
+				value = callback({ log, logContext: context, captureLogs: makeCaptureLogs(context) })
 			} catch (error) {
 				onThrow(context, error)
 				throw error
 			}
+
+			onReturn(context, value)
+
+			return value
 		}
 
 		return captureLogs

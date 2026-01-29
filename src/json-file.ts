@@ -56,6 +56,13 @@ const loggingSucksObject = loggingSucks<LogItem>({
 	onFields(context, fields) {
 		deepMergeObjects(context.custom!.fields, fields)
 	},
+	onReturn(context, value) {
+		if (value instanceof Promise) {
+			value.catch(error => {
+				context.custom!.error = toJsodd(error)
+			})
+		}
+	},
 	onThrow(context, error) {
 		context.custom!.error = toJsodd(error)
 	}
