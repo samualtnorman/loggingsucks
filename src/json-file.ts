@@ -48,9 +48,11 @@ const loggingSucksObject = loggingSucks<LogItem>({
 			logItems.push(context.custom)
 	},
 	onFields(context, fields) {
+		context.custom!.to = new Date().toISOString()
 		deepMergeObjects(context.custom!.fields, fields)
 	},
 	onReturn(context, value) {
+		context.custom!.to = new Date().toISOString()
 		if (value instanceof Promise) {
 			value.catch(error => {
 				context.custom!.error = toJsodd(error)
@@ -58,6 +60,7 @@ const loggingSucksObject = loggingSucks<LogItem>({
 		}
 	},
 	onThrow(context, error) {
+		context.custom!.to = new Date().toISOString()
 		context.custom!.error = toJsodd(error)
 	}
 })
