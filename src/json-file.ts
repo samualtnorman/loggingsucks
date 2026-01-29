@@ -3,12 +3,12 @@ import { makeUlid } from "tiny-ulid"
 import { CaptureLogsFn, ContextlessLogFn, loggingSucks, type LogFields } from "./default"
 
 type LogItem = {
-	name: string,
-	from: string,
-	to: string,
-	id: string,
-	error?: string | undefined,
-	fields: LogFields,
+	name: string
+	from: string
+	to: string
+	id: string
+	error?: string | undefined
+	fields: LogFields
 	logs?: LogItem[] | undefined
 }
 
