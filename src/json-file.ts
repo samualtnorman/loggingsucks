@@ -35,13 +35,9 @@ const deepMerge = (original: unknown, toMerge: unknown): unknown => {
 
 const loggingSucksObject = loggingSucks<LogItem>({
 	onContext(context) {
-		context.custom = {
-			name: context.name,
-			from: new Date().toISOString(),
-			to: new Date().toISOString(),
-			id: makeUlid(),
-			fields: {}
-		}
+		const date = new Date().toISOString()
+
+		context.custom = { name: context.name, from: date, to: date, id: makeUlid(), fields: {} }
 
 		if (context.parent) {
 			if (context.parent.custom!.logs)
