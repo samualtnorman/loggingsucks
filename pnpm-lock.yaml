@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  jsodd: link:../../../.local/share/pnpm/global/5/node_modules/jsodd
-
 importers:
 
   .:
@@ -18,8 +15,8 @@ importers:
         specifier: ^0.0.1
         version: 0.0.1
       jsodd:
-        specifier: link:../../../.local/share/pnpm/global/5/node_modules/jsodd
-        version: link:../../../.local/share/pnpm/global/5/node_modules/jsodd
+        specifier: 0.0.1-c56db82
+        version: 0.0.1-c56db82
       tiny-ulid:
         specifier: 0.1.2-595d07a
         version: 0.1.2-595d07a
@@ -1142,6 +1139,10 @@ packages:
     resolution: {integrity: sha512-Qnof73jz4bPCxCfF4tfUMBn4tHqyRxq1TtC/Ca1pkMfJ9RE7tM/0faHVwcqP4THTdgZhD4Us1/hYrAePD4OznQ==}
     engines: {node: ^20.10 || >=22}
 
+  '@samual/types@0.0.2-23ffc7f':
+    resolution: {integrity: sha512-6vqdhFUB2mcW+E2S+OdLLXuBZeg7+GL6ocAq4XqD7OiTG24MOnvFpiTDk2XxkBgAYHmVqfX/tABfgYAros1a3w==}
+    engines: {node: ^20.10 || >=22}
+
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
@@ -1409,6 +1410,10 @@ packages:
     resolution: {integrity: sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==}
     engines: {node: '>=6'}
     hasBin: true
+
+  jsodd@0.0.1-c56db82:
+    resolution: {integrity: sha512-h7mc3SiZdniuF75R7l47l/Kf4GDWvN5RPtOCPR+UIxzhs5uTyshCRVsG7IP+uTJszY0QlrU1uzH3a1/u0eD6zw==}
+    engines: {node: ^20.10 || ^22 || >=24}
 
   json5@2.2.3:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
@@ -2826,6 +2831,8 @@ snapshots:
 
   '@samual/types@0.0.1': {}
 
+  '@samual/types@0.0.2-23ffc7f': {}
+
   '@standard-schema/spec@1.1.0': {}
 
   '@total-typescript/ts-reset@0.6.1': {}
@@ -3102,6 +3109,10 @@ snapshots:
       argparse: 2.0.1
 
   jsesc@3.1.0: {}
+
+  jsodd@0.0.1-c56db82:
+    dependencies:
+      '@samual/types': 0.0.2-23ffc7f
 
   json5@2.2.3: {}
 
