@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@b9g/async-context':
-        specifier: ^0.1.4
-        version: 0.1.4
       '@samual/types':
         specifier: ^0.0.1
         version: 0.0.1
@@ -62,9 +59,6 @@ importers:
         version: 4.0.16(@types/node@20.10.8)(jiti@2.6.1)(terser@5.44.1)
 
 packages:
-
-  '@b9g/async-context@0.1.4':
-    resolution: {integrity: sha512-zl2bwMCS1HZEPhwzqQ8fZbxE5OFvuhHsrPEwDKZN9MTERE2UnmmBtoeeM3/29HOTnXV1+ROSHRc0YD3qIbM60Q==}
 
   '@babel/code-frame@7.27.1':
     resolution: {integrity: sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg==}
@@ -1761,8 +1755,6 @@ packages:
     resolution: {integrity: sha512-k7Nwx6vuWx1IJ9Bjuf4Zt1PEllcwe7cls3VNzm4CQ1/hgtFUK2bRNG3rvnpPUhFjmqJKAKtjV576KnUkHocg/g==}
 
 snapshots:
-
-  '@b9g/async-context@0.1.4': {}
 
   '@babel/code-frame@7.27.1':
     dependencies:

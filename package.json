@@ -13,10 +13,9 @@
 	"repository": "github:samualtnorman/loggingsucks",
 	"type": "module",
 	"dependencies": {
-		"@b9g/async-context": "^0.1.4",
 		"@samual/types": "^0.0.1",
-		"tiny-ulid": "0.1.2-595d07a",
-		"jsodd": "0.0.1-c56db82"
+		"jsodd": "0.0.1-c56db82",
+		"tiny-ulid": "0.1.2-595d07a"
 	},
 	"devDependencies": {
 		"@babel/plugin-syntax-typescript": "^7.27.1",
