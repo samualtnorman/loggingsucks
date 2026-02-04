@@ -1,3 +1,4 @@
+import type { JsonValue } from "@samual/types"
 import { toJsodd } from "jsodd"
 import { makeUlid } from "tiny-ulid"
 import { CaptureLogsFn, ContextlessLogFn, loggingSucks, type LogFields } from "./default"
@@ -8,7 +9,7 @@ type LogItem = {
 	to: string
 	id: string
 	error?: string | undefined
-	fields: LogFields
+	fields: LogFields<JsonValue>
 	logs?: LogItem[] | undefined
 }
 
@@ -33,7 +34,7 @@ const deepMerge = (original: unknown, toMerge: unknown): unknown => {
 	return original
 }
 
-const loggingSucksObject = loggingSucks<LogItem>({
+const loggingSucksObject = loggingSucks<JsonValue, LogItem>({
 	onContext(context) {
 		const date = new Date().toISOString()
 
@@ -65,5 +66,5 @@ const loggingSucksObject = loggingSucks<LogItem>({
 	}
 })
 
-export const captureLogs: CaptureLogsFn<LogItem> = loggingSucksObject.captureLogs
-export const log: ContextlessLogFn = loggingSucksObject.log
+export const captureLogs: CaptureLogsFn<JsonValue, LogItem> = loggingSucksObject.captureLogs
+export const log: ContextlessLogFn<JsonValue> = loggingSucksObject.log

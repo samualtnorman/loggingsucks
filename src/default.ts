@@ -1,44 +1,42 @@
-import type { JsonValue } from "@samual/types"
-
-export type LogFields = Record<string, JsonValue | undefined>
+export type LogFields<T> = Record<string, T | undefined>
 
 export type LogContext<TCustom> = { name: string, parent: LogContext<TCustom> | undefined, custom: TCustom | undefined }
 
-export type MakeLoggerOptions<TCustom> = {
+export type MakeLoggerOptions<TFieldValue, TCustom> = {
 	onContext: (context: LogContext<TCustom>) => void
-	onFields: (context: LogContext<TCustom>, fields: LogFields) => void
+	onFields: (context: LogContext<TCustom>, fields: LogFields<TFieldValue>) => void
 	onReturn: (context: LogContext<TCustom>, value: unknown) => void
 	onThrow: (context: LogContext<TCustom>, error: unknown) => void
 }
 
-export type LogFn = (fields: LogFields) => void
+export type LogFn<TFieldValue> = (fields: LogFields<TFieldValue>) => void
 
-export type ContextlessLogFn = (name: string, fields: LogFields) => void
+export type ContextlessLogFn<TFieldValue> = (name: string, fields: LogFields<TFieldValue>) => void
 
-export type CaptureLogsFn<TCustom> = <TReturn>(
+export type CaptureLogsFn<TFieldValue, TCustom> = <TReturn>(
 	name: string,
-	callback: (_: { log: LogFn, logContext: LogContext<TCustom>, captureLogs: CaptureLogsFn<TCustom> }) => TReturn
+	callback: (_: { log: LogFn<TFieldValue>, logContext: LogContext<TCustom>, captureLogs: CaptureLogsFn<TFieldValue, TCustom> }) => TReturn
 ) => TReturn
 
-export type LoggingSucks<TCustom> = { captureLogs: CaptureLogsFn<TCustom>, log: ContextlessLogFn }
+export type LoggingSucks<TFieldValue, TCustom> = { captureLogs: CaptureLogsFn<TFieldValue, TCustom>, log: ContextlessLogFn<TFieldValue> }
 
-export const loggingSucks = <TCustom = undefined>(
-	{ onContext, onFields, onReturn, onThrow }: MakeLoggerOptions<TCustom>
-): LoggingSucks<TCustom> => {
-	const log: ContextlessLogFn = (name, fields) => {
+export const loggingSucks = <TFieldValue, TCustom>(
+	{ onContext, onFields, onReturn, onThrow }: MakeLoggerOptions<TFieldValue, TCustom>
+): LoggingSucks<TFieldValue, TCustom> => {
+	const log: ContextlessLogFn<TFieldValue> = (name, fields) => {
 		const context: LogContext<TCustom> = { name, parent: undefined, custom: undefined }
 
 		onContext(context)
 		onFields(context, fields)
 	}
 
-	const makeCaptureLogs = (parentContext: LogContext<TCustom> | undefined): CaptureLogsFn<TCustom> => {
-		const captureLogs: CaptureLogsFn<TCustom> = (name, callback) => {
+	const makeCaptureLogs = (parentContext: LogContext<TCustom> | undefined): CaptureLogsFn<TFieldValue, TCustom> => {
+		const captureLogs: CaptureLogsFn<TFieldValue, TCustom> = (name, callback) => {
 			const context: LogContext<TCustom> = { name, parent: parentContext, custom: undefined }
 
 			onContext(context)
 
-			const log: LogFn = fields => {
+			const log: LogFn<TFieldValue> = fields => {
 				onFields(context, fields)
 			}
 
