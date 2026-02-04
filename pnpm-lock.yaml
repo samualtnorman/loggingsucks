@@ -27,6 +27,9 @@ importers:
       '@samual/rolldown-config':
         specifier: jsr:0.0.1-c24c564
         version: '@jsr/samual__rolldown-config@0.0.1-c24c564(@types/babel__core@7.20.5)(prettier@3.7.4)(rollup@4.55.1)'
+      '@sn/assert':
+        specifier: jsr:0.0.1-da0fbad
+        version: '@jsr/sn__assert@0.0.1-da0fbad'
       '@total-typescript/ts-reset':
         specifier: ^0.6.1
         version: 0.6.1
@@ -767,6 +770,9 @@ packages:
 
   '@jsr/samual__types@0.0.2-23ffc7f':
     resolution: {integrity: sha512-R5J5yovA/JwAWcbH3DfuMpU1zPNApN+4Q69c1gyhBa9mkTfx7gFpY7pJTzsdO9uIrCLzmsABuM9Wg65jgYXttw==, tarball: https://npm.jsr.io/~/11/@jsr/samual__types/0.0.2-23ffc7f.tgz}
+
+  '@jsr/sn__assert@0.0.1-da0fbad':
+    resolution: {integrity: sha512-A45Ro/I/BVDUcZ6XdPvcRjg7Fk63tc29w01tutMcelwFShXGzxh17IeWxil9JwAQJ+GtLKelWZ+K9gG/yRb34w==, tarball: https://npm.jsr.io/~/11/@jsr/sn__assert/0.0.1-da0fbad.tgz}
 
   '@jsr/sn__assert@0.0.1-fc7f76d':
     resolution: {integrity: sha512-zyi9CyidAMCPKfrQikeG+np0Lfhw98A5FT49zMtXVcPW/oXvepU3X+7bEfvwWz9+X2B1KmvawwARf9rZTuCBBw==, tarball: https://npm.jsr.io/~/11/@jsr/sn__assert/0.0.1-fc7f76d.tgz}
@@ -2595,6 +2601,10 @@ snapshots:
       - supports-color
 
   '@jsr/samual__types@0.0.2-23ffc7f': {}
+
+  '@jsr/sn__assert@0.0.1-da0fbad':
+    dependencies:
+      '@jsr/samual__types': 0.0.2-23ffc7f
 
   '@jsr/sn__assert@0.0.1-fc7f76d':
     dependencies:

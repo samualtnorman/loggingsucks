@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -ex
+export TARGET=jsr
+export JSR_NAME=@sn/loggingsucks
 rm dist --recursive --force
 JSR=1 ./rolldown.config.js
 scripts/emit-dts.sh
