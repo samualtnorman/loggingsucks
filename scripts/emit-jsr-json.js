@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { expectTruthy } from "@sn/assert"
+import { expectTruthy } from "@samual/assert"
 import { mkdirSync as makeDirectorySync, writeFileSync } from "fs"
 import packageJson from "../package.json" with { type: "json" }
 import { getExports } from "./lib/exports.js"

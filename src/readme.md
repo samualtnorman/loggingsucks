@@ -9,7 +9,7 @@ if (!FULL_ERROR) {
 }
 
 const { readFileSync } = await import("fs")
-const { assert } = await import("@sn/assert")
+const { assert } = await import("@samual/assert")
 
 assert(JSR_NAME, "Missing JSR_NAME")
 
